@@ -24,11 +24,26 @@ input{
 	margin: 0 auto;
 	border-bottom:20px;
 	color:#cec7d8;
+	border:0;
 }
 #button{
 	text-align:center;
 	
 }
-.list{
+#todo-list{
 	text-align:center;
+	padding: 16px 16px 16px 60px;
+    border: none;
+    background: rgba(0, 0, 0, 0.003);
+    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+::-webkit-input-placeholder {
+   color: gray;
+   opacity:0.2;
+   font-family: inherit;
+   font-weight: inherit;
+   line-height: 1.4em;
+   font-size:30px;
+   font-style:italic;
+   text-align:center;
 }
