@@ -3,10 +3,25 @@ body{
 	background-color:rgb(245, 245, 245);
 	line-height: 1.4em;
     font-weight: 300;
+	text-align:center;
+	display:block;
+}
+header{
+	background-color: #009494;
+	
+}
+
+section{
+	background-color:#33947c;
+	
+}
+
+footer{
+	background-color:#004a94;
 }
 
 h1{
-	text-align:center;
+	
 	text-decoration:'Helvetica Neue', Helvetica, Arial, sans-serif;;
 	font-weight:100;
 	font-size:100px;
@@ -16,44 +31,14 @@ h1{
     -webkit-margin-after: 0.83em;
 }
 
-input{
-	
-	font-size: 48px; 
+input {
+	font-size: 3em; 
 	width: 10em;
-	display:block;
-	margin: 0 auto;
+	display:inline-block;
 	color:#cec7d8;
 	border:0;
-}
-
-ul{
-	
-	display:block;
-}
-
-#todo-list{
-	text-align:center;
-    border: none;
-    background: rgba(0, 0, 0, 0.003);
-	width:440px;
-	height:100px;
-	margin:0 auto;
-	list-style:none;
-}
-
-#todo-list li{
-	font-size:24px;
-	border-bottom: 1px solid #ededed;
-	height:40px;
-	text-align:center;
-	background-position:center;
-}
-
-li{
-	display:list-item;
-	list-style:inherit;
-	background-color:white;
-	
+	padding:16px;
+	padding-bottom:0;
 	
 }
 
@@ -63,10 +48,52 @@ li{
    font-family: inherit;
    font-weight: inherit;
    line-height: 1.4em;
-   font-size:30px;
+   font-size:25px;
    font-style:italic;
-   text-align:center;
+   
+ }
+
+ textarea:focus, input:focus {
+    color: #black;
+	outline:0;
 }
+
+input, select, textarea{
+    color: #000;
+	outline:0;
+}
+ 
+#checkbox{
+	outline:0;
+	width:10px;
+	height:10px;
+}
+
+li{
+	display:list-item;
+	background-color:white;
+	font-size: 2em; 
+	width: 420px;;
+	border-bottom:1px solid #ededed;
+	height:40px;
+	list-style:none;
+	margin-left:473px;
+}
+
+
+section #todo-app{
+	display:block;
+}
+
+
+
+
+
+
+main{
+	text-align:center;
+}
+
 p{
 	margin: 65px auto 0;
     color: #bfbfbf;
@@ -75,4 +102,11 @@ p{
     text-align: center;
 	text-decoration:none;
 
+}
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+	border: none;
+	box-sizing: border-box;
 }
