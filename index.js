@@ -1,10 +1,15 @@
 $(document).ready(function(){
-	$('input#todo').keyup(function(ev) {
+	$('input#new-todo').keyup(function(ev) {
 		var value = $(ev.target).val();
+		var $ul = $('ul#todo-list');
 		if (ev.keyCode == 13) {
-			$('ul#todo-list').append('<input type="checkbox" id="checkbox" style="color:white"/>');
-			$('ul#todo-list').append('<li>' + value + '</li>');
-			
+			$ul.append('<li>' + '<input type="checkbox"  class="toggle"/>' + value + '</li>');
+			var $li_list = $ul.find('>li');
+			if ($li_list.length > 0){
+				$('#toggle-all').show();
+			} else {
+				$('#toggle-all').hide();
+			}
 			ev.preventDefault();			
         $(this).val('');
         return false;
