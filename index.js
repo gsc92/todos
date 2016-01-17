@@ -3,7 +3,7 @@ $(document).ready(function(){
 		var value = $(ev.target).val();
 		var $ul = $('ul#todo-list');
 		if (ev.keyCode == 13) {
-			$ul.append('<li>' + '<input type="checkbox"  class="toggle"/>' + value + '</li>');
+			$ul.append('<li>' + '<input type="checkbox" class="toggle"/>' + value + '</li>');
 			var $li_list = $ul.find('>li');
 			if ($li_list.length > 0){
 				$('#toggle-all').show();
