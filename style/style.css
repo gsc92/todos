@@ -98,10 +98,6 @@ label[for='toggle-all'] {
 	color: #737373;
 
 }
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
 #todo-list {
 	margin: 0;
 	padding: 0;
@@ -154,6 +150,7 @@ li {
 	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
 }
 
+
 #todo-list li label {
     white-space: pre;
     word-break: break-word;
@@ -202,15 +199,7 @@ li {
 #todo-list li.editing:last-child {
 	margin-bottom: -1px;
 }
-ul{
-	display:block;
-	list-style-type: disc;
-	-webkit-margin-before:1em;
-	-webkit-margin-after:1em;
-	-webkit-margin-start:0px;
-	-webkit-margin-end:0px;
-	-webkit-padding-start:40px;
-}
+
 
 section #todo-app{
 	display:block;
@@ -278,8 +267,31 @@ section {
 	margin-top:30px;
 }
 
-
-
+li{
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+	0 8px 0 -3px #f6f6f6,
+	0 9px 1px -3px rgba(0, 0, 0, 0.2),
+	0 16px 0 -6px #f6f6f6,
+	0 17px 2px -6px rgba(0, 0, 0, 0.2);
+ }
+li{
+	color:#40484A;
+	display:block;
+	background-color:white;
+	font-size: 1.7em; 
+	width: 550px;
+	border-left:0;
+	border-right:0;
+	height:63px;
+	list-style:none;
+	margin-top:0;
+	text-indent:0;
+	text-align:left;
+}
+buttton{
+	
+	
+}
 p{
 	margin: 80px auto 0;
     color: #bfbfbf;
