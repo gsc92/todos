@@ -289,8 +289,12 @@ li{
 	text-align:left;
 }
 button{
+	cursor:"x";
 	float:right;
-	
+	color:#FFFF;
+	border:none;
+	margin-top:20px;
+	margin-right:10px;
 }
 p{
 	margin: 80px auto 0;
