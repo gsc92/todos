@@ -3,17 +3,23 @@ $(document).ready(function(){
 		var value = $(ev.target).val();
 		var $ul = $('ul#todo-list');
 		if (ev.keyCode == 13) {
-			$ul.append('<li>' + '<input type="checkbox" class="toggle"/>' + value + '<button class="destroy"></button>'+'</li>');
+			$ul.append('<div class="view">' + '<li>' + '<input type="checkbox" class="toggle"/>'+'<label>'+value+'</label>'+'<button class="destroy"></button>'+'</li>'+'</div>');
 			var $li_list = $ul.find('>li');
-			if ($li_list.length > 0){
-				$('#toggle-all').show();
-			} else {
+			if ($li_list.length < 0){
 				$('#toggle-all').hide();
+			} else {
+				$('#toggle-all').show();
 			}
 			ev.preventDefault();			
-        $(this).val('');
-        return false;
-		}		
+    $(this).val('');
+    return false;
+	}		
 	});
-	$("button").click();
+	$("#toggle").on('click', function(ev){
+		var is_checked = $(ev.target).prop('checked');
+		if($('.toggle').is(':checked')){
+			return('<strike><ul></ul></strike>');
+		}
+	});
+	
 });
