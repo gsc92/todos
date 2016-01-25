@@ -259,6 +259,12 @@ section {
 	border-bottom:1px solid #ededed;
 	
  }
+ 
+#todo-list li label.completed {
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+ 
 label #value{
 	margin-top:0;
 	font-size:24px;
