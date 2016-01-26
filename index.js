@@ -12,11 +12,9 @@ $(document).ready(function () {
 			);
 					
 			var $li_list = $ul.find('>li');
-			if ($li_list.length < 0){
-				$('#toggle-all').hide();
-			} else {
+			if ($li_list.length > 0){
 				$('#toggle-all').show();
-			}
+			} 
 			
 			$("input.toggle").off('click').on('click', function (ev) {
 				var $input = $(ev.target), 
@@ -33,6 +31,11 @@ $(document).ready(function () {
 				var $button = $(ev.target),
 					$li = $button.parent('li');
 				$li.remove();
+				
+				var $li_list = $ul.find('>li');
+				if ($li_list.length == 0){
+					$('#toggle-all').hide();
+				}
 			});	
 			
 			ev.preventDefault();			
