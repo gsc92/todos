@@ -302,6 +302,9 @@ div{
 	display:block;
 }
 #footer {
+	height: 50px;
+}
+#footer {
     color: #777;
     padding: 10px 15px;
     height: 20px;

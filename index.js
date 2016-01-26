@@ -8,9 +8,9 @@ $(document).ready(function () {
 					'<input type="checkbox" class="toggle"/>' +
 					'<label>' + value + '</label>' +
 					'<button class="destroy"></button>' +
-				'</li>' 
+				'</li>'
 			);
-			
+					
 			var $li_list = $ul.find('>li');
 			if ($li_list.length < 0){
 				$('#toggle-all').hide();
@@ -27,6 +27,11 @@ $(document).ready(function () {
 					$label.removeClass('completed');
 				}
 			});
+			
+			$( "button" ).click(function() {
+				$( "li" ).remove();
+			});	
+			
 			ev.preventDefault();			
 			$(this).val('');
 			return false;
