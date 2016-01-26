@@ -17,7 +17,8 @@ $(document).ready(function () {
 			} else {
 				$('#toggle-all').show();
 			}
-			$(".toggle").off('click').on('click', function (ev) {
+			
+			$("input.toggle").off('click').on('click', function (ev) {
 				var $input = $(ev.target), 
 					$label = $input.siblings('label');
 				var is_checked = $input.prop('checked');
@@ -27,9 +28,11 @@ $(document).ready(function () {
 					$label.removeClass('completed');
 				}
 			});
-			
-			$( "button" ).click(function() {
-				$( "li" ).remove();
+						
+			$("button.destroy").off('click').on('click', function (ev) {
+				var $button = $(ev.target),
+					$li = $button.parent('li');
+				$li.remove();
 			});	
 			
 			ev.preventDefault();			
