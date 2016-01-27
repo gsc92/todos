@@ -31,12 +31,17 @@ $(document).ready(function () {
 				var $button = $(ev.target),
 					$li = $button.parent('li');
 				$li.remove();
-				
+								
 				var $li_list = $ul.find('>li');
 				if ($li_list.length == 0){
 					$('#toggle-all').hide();
 				}
 			});	
+			$("#toggle-all").on('click', function (ev) {
+				var $input = $(ev.target);
+				var is_checked = $input.prop('checked');
+				$("input.toggle").prop('checked', is_checked);
+			});
 			
 			ev.preventDefault();			
 			$(this).val('');
