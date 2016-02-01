@@ -12,7 +12,7 @@ $(document).ready(function () {
 			);
 			
 			if ($('#footer').is(":visible")== false) $("#footer").show();
-			
+						
 			var $li_list = $ul.find('>li');
 			if ($li_list.length > 0){
 				$('#toggle-all').show();
@@ -37,6 +37,7 @@ $(document).ready(function () {
 				var $li_list = $ul.find('>li');
 				if ($li_list.length == 0){
 					$('#toggle-all').hide();
+					$('#footer').hide();
 				}
 			});	
 			$("#toggle-all").on('click', function (ev) {
