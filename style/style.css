@@ -360,6 +360,7 @@ html #clear-completed:active {
     height: 20px;
     text-align: center;
     border-top: 1px solid #e6e6e6;
+	
 }
 #footer:before {
     content: '';

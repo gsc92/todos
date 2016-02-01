@@ -10,7 +10,9 @@ $(document).ready(function () {
 					'<button class="destroy"></button>' +
 				'</li>'
 			);
-					
+			
+			if ($('#footer').is(":visible")== false) $("#footer").show();
+			
 			var $li_list = $ul.find('>li');
 			if ($li_list.length > 0){
 				$('#toggle-all').show();
