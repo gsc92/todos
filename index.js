@@ -45,7 +45,7 @@ $(document).ready(function () {
 				var is_checked = $input.prop('checked');
 				$("input.toggle").prop('checked', is_checked);
 			});
-			
+						
 			ev.preventDefault();			
 			$(this).val('');
 			return false;
