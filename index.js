@@ -10,12 +10,16 @@ $(document).ready(function () {
 					'<button class="destroy"></button>' +
 				'</li>'
 			);
-						
+									
 			if ($('#footer').is(":visible")== false) $("#footer").show();
 						
 			var $li_list = $ul.find('>li');
 			if ($li_list.length > 0){
 				$('#toggle-all').show();
+				$('#todo-count').find('>span.number').text(
+					$li_list.length
+				);
+
 			} 
 			
 			$("input.toggle").off('click').on('click', function (ev) {
@@ -33,6 +37,7 @@ $(document).ready(function () {
 				var $button = $(ev.target),
 					$li = $button.parent('li');
 				$li.remove();
+				
 								
 				var $li_list = $ul.find('>li');
 				if ($li_list.length == 0){

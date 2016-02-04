@@ -359,9 +359,8 @@ html #clear-completed:active {
     padding: 10px 15px;
     height: 20px;
     text-align: center;
-    border-top: 1px solid #e6e6e6;
-	
 }
+
 #footer:before {
     content: '';
     position: absolute;
