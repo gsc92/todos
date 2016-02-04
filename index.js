@@ -10,7 +10,7 @@ $(document).ready(function () {
 					'<button class="destroy"></button>' +
 				'</li>'
 			);
-			
+						
 			if ($('#footer').is(":visible")== false) $("#footer").show();
 						
 			var $li_list = $ul.find('>li');
@@ -28,7 +28,7 @@ $(document).ready(function () {
 					$label.removeClass('completed');
 				}
 			});
-						
+										
 			$("button.destroy").off('click').on('click', function (ev) {
 				var $button = $(ev.target),
 					$li = $button.parent('li');
@@ -40,12 +40,13 @@ $(document).ready(function () {
 					$('#footer').hide();
 				}
 			});	
+			
 			$("#toggle-all").on('click', function (ev) {
 				var $input = $(ev.target);
 				var is_checked = $input.prop('checked');
 				$("input.toggle").prop('checked', is_checked);
 			});
-						
+									
 			ev.preventDefault();			
 			$(this).val('');
 			return false;
