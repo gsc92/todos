@@ -54,18 +54,14 @@ $(document).ready(function () {
 			$("#active").off('click').on('click', function (ev) {
 				$('ul#todo-list>li').show().each(function (i, li) {
 					var $labels = $(li).find('label.completed');
-					if ($labels.length > 0) {
-						$(li).hide();
-					}
+					if ($labels.length > 0) $(li).hide(); 
 				});
 			});
 			
 			$("#completed").off('click').on('click', function (ev) {
 				$('ul#todo-list>li').show().each(function (i, li) {
 					var $labels = $(li).find('label:not(.completed)');
-					if ($labels.length > 0) {
-						$(li).hide();
-					}
+					if ($labels.length > 0) $(li).hide();	
 				});
 			});
 			
