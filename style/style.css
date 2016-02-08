@@ -40,9 +40,8 @@ input[type="checkbox"] {
 	background:#fff;
 	margin:130px 0 40px 0;
 	position:relative;
-	box-shadow:  0 2px 4px 0
-		rgba(0, 0, 0, 0.2), 0 25px 50px 0
-		rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+ 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 #todoapp input::-webkit-input-placeholder {
 	font-style: italic;
@@ -67,7 +66,9 @@ input[type="checkbox"] {
 	-webkit-text-rendering: optimizeLegibility;
 	text-rendering: optimizeLegibility;
 }
-
+#new-todo .edit{
+	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+}
 #new-todo {
 	position: relative;
 	margin: 0;
@@ -76,17 +77,13 @@ input[type="checkbox"] {
 	font-family: inherit;
 	font-weight: inherit;
 	line-height: 1.4em;
-	border: 0;
 	outline: none;
 	color: inherit;
-	padding: 6px;
-	border: 1px solid #999;
-	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-	box-sizing: border-box;
 	padding: 16px 16px 16px 60px;
+	box-sizing: border-box;
 	border: none;
 	background: rgba(0, 0, 0, 0.003);
-	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+	box-shadow:inset 0 -1px -1px rgba(0,0,0,0.03);
 }
 
 #main {
@@ -114,12 +111,9 @@ input[type="checkbox"] {
 
 #toggle-all:checked:before {
 	color: #737373;
+	
+}
 
-}
-#toggle-all:checked:after{
-	color: #d9d9d9;
-    text-decoration: line-through;
-}
 
 #todo-list {
 	margin: 0;
@@ -148,20 +142,18 @@ li{
 
 #todo-list li .toggle:after {
 	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
-}
+	text-decoration:line-through;
+	}
 
 #todo-list li .toggle:checked:after {
 	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+	text-decoration:line-through;
 }
+
 #todo-list li label #value{
 	margin-left:0;
 	margin-bottom:30px;
 	
-}
-
-#todo-list li.completed label {
-	color: #d9d9d9;
-	text-decoration: line-through;
 }
 
 #todo-list li .destroy {
@@ -256,8 +248,13 @@ section {
 	border-bottom:1px solid #ededed;
 	
  }
- 
-#todo-list li label.completed {
+
+#toggle-all:checked label {
+	color: #d9d9d9;
+    text-decoration: line-through;
+ }
+
+#todo-list li label.completed  {
     color: #d9d9d9;
     text-decoration: line-through;
 }
@@ -278,7 +275,7 @@ button{
 	margin-right:10px;
 }
 p{
-	margin: 80px auto 0;
+	margin: 84px auto 0;
     color: #bfbfbf;
     font-size: 10px;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);

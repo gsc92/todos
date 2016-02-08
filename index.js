@@ -19,7 +19,6 @@ $(document).ready(function () {
 				$('#todo-count').find('>span.number').text(
 					$li_list.length
 				);
-
 			} 
 			
 			$("input.toggle").off('click').on('click', function (ev) {
@@ -37,21 +36,50 @@ $(document).ready(function () {
 				var $button = $(ev.target),
 					$li = $button.parent('li');
 				$li.remove();
-				
-								
+												
 				var $li_list = $ul.find('>li');
 				if ($li_list.length == 0){
 					$('#toggle-all').hide();
 					$('#footer').hide();
 				}
+				$('#todo-count').find('>span.number').text(
+					$li_list.length
+				);
 			});	
 			
-			$("#toggle-all").on('click', function (ev) {
+			$("#all").off('click').on('click', function (ev) {
+				$('ul#todo-list>li').show();
+			});
+			
+			$("#active").off('click').on('click', function (ev) {
+				$('ul#todo-list>li').show().each(function (i, li) {
+					var $labels = $(li).find('label.completed');
+					if ($labels.length > 0) {
+						$(li).hide();
+					}
+				});
+			});
+			
+			$("#completed").off('click').on('click', function (ev) {
+				$('ul#todo-list>li').show().each(function (i, li) {
+					var $labels = $(li).find('label:not(.completed)');
+					if ($labels.length > 0) {
+						$(li).hide();
+					}
+				});
+			});
+			
+			$("#toggle-all").off('click').on('click', function (ev) {
 				var $input = $(ev.target);
 				var is_checked = $input.prop('checked');
 				$("input.toggle").prop('checked', is_checked);
+				if (is_checked){
+					$('li>label').addClass('completed');
+				} else {
+					$('li>label').removeClass('completed');
+				}
 			});
-									
+						
 			ev.preventDefault();			
 			$(this).val('');
 			return false;
