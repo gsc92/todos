@@ -26,13 +26,13 @@
 			</span>
 			<ul id="filters">
 				<li>
-					<a id="all" class="selected" href="#/all">All</a>
+					<a id="all" {{#eq filter 'all'}}class="selected"{{/eq}}  href="#/all">All</a>
 				</li>
 				<li>
-					<a id="active" href="#/active">Active</a>
+					<a id="active" {{#eq filter 'active'}}class="selected"{{/eq}}  href="#/active">Active</a>
 				</li>
 				<li>
-					<a id="completed" href="#/completed">Completed</a>
+					<a id="completed" {{#eq filter 'completed'}}class="selected"{{/eq}}  href="#/completed">Completed</a>
 				</li>
 			</ul>
 			<button id="clear-completed">Clear completed</button>
