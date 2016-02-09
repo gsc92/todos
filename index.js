@@ -31,7 +31,17 @@ $(document).ready(function () {
 					$label.removeClass('completed');
 				}
 			});
-										
+			
+			$("#clear-completed").off('click').on('click', function (ev) {
+				$('ul#todo-list>li').show().each(function (i, li) {
+					var $labels = $(li).find('label.completed');
+					if ($labels.length > 0) $(li).remove();
+				});	
+				$('#todo-count').find('>span.number').text(
+					$li_list.length
+				);
+			});
+			
 			$("button.destroy").off('click').on('click', function (ev) {
 				var $button = $(ev.target),
 					$li = $button.parent('li');
