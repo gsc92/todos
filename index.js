@@ -30,16 +30,19 @@ $(document).ready(function () {
 				} else {
 					$label.removeClass('completed');
 				}
+				var $li_list = $('ul#todo-list>li'),
+					$label_list = $li_list.find('label:not(.completed)');
+				$('#todo-count').find('>span.number').text(
+					$label_list.length
+				);
 			});
 			
 			$("#clear-completed").off('click').on('click', function (ev) {
-				$('ul#todo-list>li').show().each(function (i, li) {
+				$('ul#todo-list>li').each(function (i, li) {
 					var $labels = $(li).find('label.completed');
 					if ($labels.length > 0) $(li).remove();
 				});	
-				$('#todo-count').find('>span.number').text(
-					$li_list.length
-				);
+				
 			});
 			
 			$("button.destroy").off('click').on('click', function (ev) {
@@ -59,6 +62,9 @@ $(document).ready(function () {
 			
 			$("#all").off('click').on('click', function (ev) {
 				$('ul#todo-list>li').show();
+				$('#all').addClass('selected');
+				$('#active').removeClass('selected');
+				$('#completed').removeClass('selected');
 			});
 			
 			$("#active").off('click').on('click', function (ev) {
@@ -66,6 +72,9 @@ $(document).ready(function () {
 					var $labels = $(li).find('label.completed');
 					if ($labels.length > 0) $(li).hide(); 
 				});
+				$('#all').removeClass('selected');
+				$('#active').addClass('selected');
+				$('#completed').removeClass('selected');
 			});
 			
 			$("#completed").off('click').on('click', function (ev) {
@@ -73,6 +82,9 @@ $(document).ready(function () {
 					var $labels = $(li).find('label:not(.completed)');
 					if ($labels.length > 0) $(li).hide();	
 				});
+				$('#all').removeClass('selected');
+				$('#active').removeClass('selected');
+				$('#completed').addClass('selected');
 			});
 			
 			$("#toggle-all").off('click').on('click', function (ev) {
