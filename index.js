@@ -24,30 +24,41 @@ $(document).ready(function () {
 			$("input.toggle").off('click').on('click', function (ev) {
 				var $input = $(ev.target), 
 					$label = $input.siblings('label');
+					
 				var is_checked = $input.prop('checked');
 				if (is_checked){
 					$label.addClass('completed');
 				} else {
 					$label.removeClass('completed');
 				}
+				
 				var $li_list = $('ul#todo-list>li'),
-					$label_list = $li_list.find('label:not(.completed)');
-				$('#todo-count').find('>span.number').text(
-					$label_list.length
-				);
+					$not_completed_list = $li_list.find('label:not(.completed)');
+				
+				$('#todo-count')
+					.find('>span.number').text($not_completed_list.length);
+				
+				var $completed_list = $li_list.find('label.completed');
+				if ($completed_list.length == 0) {
+					$('#clear-completed').hide();
+				} else {
+					$('#clear-completed').show();
+				}
 			});
 								
 			$("#clear-completed").off('click').on('click', function (ev) {
-				$('ul#todo-list>li').each(function (i, li) {
+				$('ul#todo-list>li').each(function (index, li) {
 					var $labels = $(li).find('label.completed');
-					if ($labels.length > 0) $(li).remove(), $('#footer').hide(), $('#toggle-all').hide();
+					if ($labels.length > 0) $(li).remove();
 				});	
-
-				if($('label.completed').length == 0){
-					$('#clear-completed').hide();
-				} else {
-					$('#clear-completd').show();
-				}
+				
+				if ($('ul#todo-list>li').length == 0) {
+					$('#toggle-all').hide();
+					$('#footer').hide();
+				}		
+				
+				$('#clear-completed').hide();
+				$('#toggle-all').prop('checked', false);
 			});
 			
 			$("button.destroy").off('click').on('click', function (ev) {
@@ -101,11 +112,19 @@ $(document).ready(function () {
 				} else {
 					$('li>label').removeClass('completed');
 				}
+				
 				var $li_list = $('ul#todo-list>li'),
 					$label_list = $li_list.find('label:not(.completed)');
 				$('#todo-count').find('>span.number').text(
 					$label_list.length
 				);
+				
+				var $completed_list = $li_list.find('label.completed');
+				if ($completed_list.length == 0) {
+					$('#clear-completed').hide();
+				} else {
+					$('#clear-completed').show();
+				}
 			});
 						
 			ev.preventDefault();			
