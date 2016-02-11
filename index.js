@@ -36,13 +36,18 @@ $(document).ready(function () {
 					$label_list.length
 				);
 			});
-			
+								
 			$("#clear-completed").off('click').on('click', function (ev) {
 				$('ul#todo-list>li').each(function (i, li) {
 					var $labels = $(li).find('label.completed');
-					if ($labels.length > 0) $(li).remove();
+					if ($labels.length > 0) $(li).remove(), $('#footer').hide(), $('#toggle-all').hide();
 				});	
-				
+
+				if($('label.completed').length == 0){
+					$('#clear-completed').hide();
+				} else {
+					$('#clear-completd').show();
+				}
 			});
 			
 			$("button.destroy").off('click').on('click', function (ev) {
@@ -96,6 +101,11 @@ $(document).ready(function () {
 				} else {
 					$('li>label').removeClass('completed');
 				}
+				var $li_list = $('ul#todo-list>li'),
+					$label_list = $li_list.find('label:not(.completed)');
+				$('#todo-count').find('>span.number').text(
+					$label_list.length
+				);
 			});
 						
 			ev.preventDefault();			
