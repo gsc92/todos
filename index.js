@@ -45,22 +45,7 @@ $(document).ready(function () {
 					$('#clear-completed').show();
 				}
 			});
-								
-			$("#clear-completed").off('click').on('click', function (ev) {
-				$('ul#todo-list>li').each(function (index, li) {
-					var $labels = $(li).find('label.completed');
-					if ($labels.length > 0) $(li).remove();
-				});	
-				
-				if ($('ul#todo-list>li').length == 0) {
-					$('#toggle-all').hide();
-					$('#footer').hide();
-				}		
-				
-				$('#clear-completed').hide();
-				$('#toggle-all').prop('checked', false);
-			});
-			
+									
 			$("button.destroy").off('click').on('click', function (ev) {
 				var $button = $(ev.target),
 					$li = $button.parent('li');
@@ -125,6 +110,21 @@ $(document).ready(function () {
 				} else {
 					$('#clear-completed').show();
 				}
+			});
+			
+			$("#clear-completed").off('click').on('click', function (ev) {
+				$('ul#todo-list>li').each(function (index, li) {
+					var $labels = $(li).find('label.completed');
+					if ($labels.length > 0) $(li).remove();
+				});	
+				
+				if ($('ul#todo-list>li').length == 0) {
+					$('#toggle-all').hide();
+					$('#footer').hide();
+				}		
+				
+				$('#clear-completed').hide();
+				$('#toggle-all').prop('checked', false);
 			});
 						
 			ev.preventDefault();			
