@@ -19,9 +19,9 @@ $(document).ready(function () {
 				$('#todo-count').find('>span.number').text(
 					$li_list.length
 				);
-			} 
+			}
 			
-			$("input.toggle").off('click').on('click', function (ev) {
+			function input_toggle (ev){
 				var $input = $(ev.target), 
 					$label = $input.siblings('label');
 					
@@ -44,7 +44,9 @@ $(document).ready(function () {
 				} else {
 					$('#clear-completed').show();
 				}
-			});
+			}
+			
+			$("input.toggle").off('click').on('click', input_toggle);
 									
 			function delete_item (ev) {
 				var $button = $(ev.target),
