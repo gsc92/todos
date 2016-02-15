@@ -96,7 +96,7 @@ $(document).ready(function () {
 			
 			$("#completed").off('click').on('click', completed_items);
 			
-			$("#toggle-all").off('click').on('click', function (ev) {
+			function toggle_all (ev) {
 				var $input = $(ev.target);
 				var is_checked = $input.prop('checked');
 				$("input.toggle").prop('checked', is_checked);
@@ -118,7 +118,9 @@ $(document).ready(function () {
 				} else {
 					$('#clear-completed').show();
 				}
-			});
+			}
+			
+			$("#toggle-all").off('click').on('click', toggle_all);
 			
 			$("#clear-completed").off('click').on('click', function (ev) {
 				$('ul#todo-list>li').each(function (index, li) {
