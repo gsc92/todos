@@ -84,7 +84,7 @@ $(document).ready(function () {
 			
 			$("#active").off('click').on('click', active_items);
 			
-			$("#completed").off('click').on('click', function (ev) {
+			function completed_items (ev) {
 				$('ul#todo-list>li').show().each(function (i, li) {
 					var $labels = $(li).find('label:not(.completed)');
 					if ($labels.length > 0) $(li).hide();	
@@ -92,7 +92,9 @@ $(document).ready(function () {
 				$('#all').removeClass('selected');
 				$('#active').removeClass('selected');
 				$('#completed').addClass('selected');
-			});
+			}
+			
+			$("#completed").off('click').on('click', completed_items);
 			
 			$("#toggle-all").off('click').on('click', function (ev) {
 				var $input = $(ev.target);
