@@ -46,7 +46,7 @@ $(document).ready(function () {
 				}
 			});
 									
-			$("button.destroy").off('click').on('click', function (ev) {
+			function delete_item (ev) {
 				var $button = $(ev.target),
 					$li = $button.parent('li');
 				$li.remove();
@@ -59,7 +59,9 @@ $(document).ready(function () {
 				$('#todo-count').find('>span.number').text(
 					$li_list.length
 				);
-			});	
+			}
+			
+			$("button.destroy").off('click').on('click', delete_item);	
 			
 			$("#all").off('click').on('click', function (ev) {
 				$('ul#todo-list>li').show();
