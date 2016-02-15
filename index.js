@@ -122,7 +122,7 @@ $(document).ready(function () {
 			
 			$("#toggle-all").off('click').on('click', toggle_all);
 			
-			$("#clear-completed").off('click').on('click', function (ev) {
+			function clear_completed (ev) {
 				$('ul#todo-list>li').each(function (index, li) {
 					var $labels = $(li).find('label.completed');
 					if ($labels.length > 0) $(li).remove();
@@ -135,7 +135,9 @@ $(document).ready(function () {
 				
 				$('#clear-completed').hide();
 				$('#toggle-all').prop('checked', false);
-			});
+			}
+			
+			$("#clear-completed").off('click').on('click', clear_completed);
 						
 			ev.preventDefault();			
 			$(this).val('');
