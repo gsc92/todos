@@ -63,12 +63,14 @@ $(document).ready(function () {
 			
 			$("button.destroy").off('click').on('click', delete_item);	
 			
-			$("#all").off('click').on('click', function (ev) {
+			function all_items (ev) {
 				$('ul#todo-list>li').show();
 				$('#all').addClass('selected');
 				$('#active').removeClass('selected');
 				$('#completed').removeClass('selected');
-			});
+			}
+			
+			$("#all").off('click').on('click', all_items);
 			
 			$("#active").off('click').on('click', function (ev) {
 				$('ul#todo-list>li').show().each(function (i, li) {
