@@ -21,7 +21,7 @@ $(document).ready(function () {
 				);
 			}
 			
-			function input_toggle (ev){
+			function toggle_item (ev) {
 				var $input = $(ev.target), 
 					$label = $input.siblings('label');
 					
@@ -46,7 +46,7 @@ $(document).ready(function () {
 				}
 			}
 			
-			$("input.toggle").off('click').on('click', input_toggle);
+			$("input.toggle").off('click').on('click', toggle_item);
 									
 			function delete_item (ev) {
 				var $button = $(ev.target),
@@ -65,16 +65,16 @@ $(document).ready(function () {
 			
 			$("button.destroy").off('click').on('click', delete_item);	
 			
-			function all_items (ev) {
+			function show_all (ev) {
 				$('ul#todo-list>li').show();
 				$('#all').addClass('selected');
 				$('#active').removeClass('selected');
 				$('#completed').removeClass('selected');
 			}
 			
-			$("#all").off('click').on('click', all_items);
+			$("#all").off('click').on('click', show_all);
 			
-			function active_items (ev) {
+			function show_active (ev) {
 				$('ul#todo-list>li').show().each(function (i, li) {
 					var $labels = $(li).find('label.completed');
 					if ($labels.length > 0) $(li).hide(); 
@@ -84,9 +84,9 @@ $(document).ready(function () {
 				$('#completed').removeClass('selected');
 			}
 			
-			$("#active").off('click').on('click', active_items);
+			$("#active").off('click').on('click', show_active);
 			
-			function completed_items (ev) {
+			function show_completed (ev) {
 				$('ul#todo-list>li').show().each(function (i, li) {
 					var $labels = $(li).find('label:not(.completed)');
 					if ($labels.length > 0) $(li).hide();	
@@ -96,9 +96,9 @@ $(document).ready(function () {
 				$('#completed').addClass('selected');
 			}
 			
-			$("#completed").off('click').on('click', completed_items);
+			$("#completed").off('click').on('click', show_completed);
 			
-			function toggle_all (ev) {
+			function toggle_items (ev) {
 				var $input = $(ev.target);
 				var is_checked = $input.prop('checked');
 				$("input.toggle").prop('checked', is_checked);
@@ -122,9 +122,9 @@ $(document).ready(function () {
 				}
 			}
 			
-			$("#toggle-all").off('click').on('click', toggle_all);
+			$("#toggle-all").off('click').on('click', toggle_items);
 			
-			function clear_completed (ev) {
+			function delete_completed (ev) {
 				$('ul#todo-list>li').each(function (index, li) {
 					var $labels = $(li).find('label.completed');
 					if ($labels.length > 0) $(li).remove();
@@ -139,7 +139,7 @@ $(document).ready(function () {
 				$('#toggle-all').prop('checked', false);
 			}
 			
-			$("#clear-completed").off('click').on('click', clear_completed);
+			$("#clear-completed").off('click').on('click', delete_completed);
 						
 			ev.preventDefault();			
 			$(this).val('');
